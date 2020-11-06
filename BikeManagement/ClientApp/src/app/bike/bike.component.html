@@ -1,0 +1,21 @@
+<app-nav-menu></app-nav-menu>
+
+<h1 id="tableLabel">Bike List</h1>
+<p *ngIf="!bikes"><em>Loading...</em></p>
+
+<div class="row">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bikes">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bike of bikes">
+        <td>{{ bike.id }}</td>
+        <td>{{ bike.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

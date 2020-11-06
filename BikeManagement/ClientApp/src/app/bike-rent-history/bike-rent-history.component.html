@@ -1,0 +1,50 @@
+<app-nav-menu></app-nav-menu>
+
+<h2>Rent a Bike</h2>
+<div class="card card-body mb-3">
+  <form>
+    <div class="form-group">
+      <label>Bike</label>
+      <input type="text" class="form-control" [(ngModel)]="bikeRent.bikeId" name="bikeId" #bikeId>
+    </div>
+    <div class="form-group">
+      <label>Customer Name</label>
+      <input type="text" class="form-control" [(ngModel)]="bikeRent.customerName" name="customerName" #customerName>
+    </div>
+
+    <div class="form-group">
+      <label>Checkout Time</label>
+      <input type="text" class="form-control" [(ngModel)]="bikeRent.checkOutTime" name="checkOutTime" #checkOutTime>
+    </div>
+
+    <div class="form-group">
+      <label>Checkin Time</label>
+      <input type="text" class="form-control" [(ngModel)]="bikeRent.checkInTime" name="checkOutTime" #checkInTime>
+    </div>
+
+    <button (click)="onSavingBikeRent(bikeRent)" class="btn btn-dark btn-block">Save</button>
+  </form>
+</div>
+
+
+<p *ngIf="!bikeHistories"><em>Loading History...</em></p>
+<div class="row">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bikeHistories">
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Checkout Time</th>
+        <th>Checkin Time</th>
+        <th>Time Spent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let history of bikeHistories">
+        <td>{{ history.customerName }}</td>
+        <td>{{ history.checkOutTime }}</td>
+        <td>{{ history.checkInTime }}</td>
+        <td>{{ history.timeSpent }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
